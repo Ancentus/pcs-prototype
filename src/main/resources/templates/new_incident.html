@@ -6,50 +6,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>New EMS Incident - Dawapal</title>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
     <link href="../css/icon.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
 
-     <!-- Waves Effect Css -->
-     <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
-     <!-- Custom Css -->
-     <link href="../css/style.css" rel="stylesheet">
+    <!-- Animation Css -->
+    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
 
-     <!-- Themes -->
-     <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <!-- Sweet Alert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Themes -->
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-blue">
-    <th:block th:replace="fragments/pcs_header :: header"/>
+    <th:block th:replace="fragments/pcs_header :: header" />
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>NEW EMS INCIDENT</h2>
-            </div>
-
-            <!-- Widgets -->
+            <!-- NEW EMS INCIDENT FORM-->
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">person_add</i>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NEW EMS INCIDENT</h2>
+
                         </div>
-                        <div class="content">
-                            <div class="text">TOTAL INCIDENTS</div>
-                            <div class="number count-to" data-from="0" data-to="0" data-speed="15" data-fresh-interval="20"></div>
+                        <div class="body">
+                            <form id="wizard_with_validation" method="POST">
+                                <h3>Account Information</h3>
+                                <fieldset>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="username" required>
+                                            <label class="form-label">Username*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="password" class="form-control" name="password" id="password"
+                                                required>
+                                            <label class="form-label">Password*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="password" class="form-control" name="confirm" required>
+                                            <label class="form-label">Confirm Password*</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <h3>Profile Information</h3>
+                                <fieldset>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="name" class="form-control" required>
+                                            <label class="form-label">First Name*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="surname" class="form-control" required>
+                                            <label class="form-label">Last Name*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="email" name="email" class="form-control" required>
+                                            <label class="form-label">Email*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <textarea name="address" cols="30" rows="3" class="form-control no-resize"
+                                                required></textarea>
+                                            <label class="form-label">Address*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input min="18" type="number" name="age" class="form-control" required>
+                                            <label class="form-label">Age*</label>
+                                        </div>
+                                        <div class="help-info">The warning step will show up if age is less than 18
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <h3>Terms & Conditions - Finish</h3>
+                                <fieldset>
+                                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" required>
+                                    <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                                </fieldset>
+                            </form>
                         </div>
                     </div>
                 </div>
-                
             </div>
-            <!-- #END# Widgets -->
-            
+            <!-- #END# NEW EMS INCIDENT FORM-->
+
 
         </div>
     </section>
@@ -58,8 +126,20 @@
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.js"></script>
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
+    <!-- Select Plugin Js -->
+    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="../../plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
     <script src="../js/pages/index.js"></script>
