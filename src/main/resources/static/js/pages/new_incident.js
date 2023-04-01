@@ -50,11 +50,31 @@ $(function () {
         errorPlacement: function (error, element) {
             $(element).parents('.form-group').append(error);
         },
-        rules: {
-            'confirm': {
-                equalTo: '#password'
-            }
-        }
+        // rules: {
+        //     'confirm': {
+        //         equalTo: '#password'
+        //     }
+        // }
+    });
+
+    //Datetimepicker plugin
+    $('.datetimepicker').bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY HH:mm',
+        clearButton: true,
+        weekStart: 1
+    });
+
+    $('.datepicker').bootstrapMaterialDatePicker({
+        format: 'DD-MM-YYYY',
+        clearButton: true,
+        weekStart: 1,
+        time: false
+    });
+
+    $('.timepicker').bootstrapMaterialDatePicker({
+        format: 'HH:mm',
+        clearButton: true,
+        date: false
     });
 });
 
