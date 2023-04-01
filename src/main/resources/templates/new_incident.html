@@ -215,7 +215,7 @@
                                                 <div class="header">
                                                     <h2 id="dispTitle">MEDICATIONS GIVEN
                                                     </h2>
-                                                    
+
                                                     <ul class="header-dropdown m-r--5">
                                                         <button type="button" class="btn bg-pink waves-effect"
                                                             data-toggle="modal" data-target="#addMedModal">
@@ -238,15 +238,51 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- #END# Med Information -->
+                                </fieldset>
+
+                                <h3>Procedures</h3>
+                                <fieldset>
+                                    <!-- Procedure Information -->
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2 id="dispTitle">PROCEDURES PERFORMED
+                                                    </h2>
+
+                                                    <ul class="header-dropdown m-r--5">
+                                                        <button type="button" class="btn bg-pink waves-effect"
+                                                            data-toggle="modal" data-target="#addProcedureModal">
+                                                            <i class="material-icons">add</i>
+                                                        </button>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+
+                                                    <div class="row clearfix">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="panel-group" id="procedure_accordion"
+                                                                role="tablist" aria-multiselectable="true">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- #END# Procedure Information -->
+                                </fieldset>
+                            </form>
                         </div>
-                        <!-- #END# Med Information -->
-                        </fieldset>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #END# NEW EMS INCIDENT FORM-->
+            <!-- #END# NEW EMS INCIDENT FORM-->
 
 
         </div>
@@ -266,7 +302,7 @@
                                         <option value="">-- Select Medication --</option>
                                         <option value="Aspirin">Aspirin</option>
                                         <option value="Nitroglycerin">Nitroglycerin</option>
-                                        <option value="Nitroglycerin">Morphine</option>
+                                        <option value="Morphine">Morphine</option>
                                     </select>
                                 </div>
                             </div>
@@ -286,14 +322,14 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <select class="form-control" id="med_response">
                                         <option value="none">-- Select Response --</option>
                                         <option value="Improved">Improved</option>
                                         <option value="No Response">No Response</option>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -304,7 +340,7 @@
                                         <option value="none">-- Select Complication --</option>
                                         <option value="Nausea">Nausea</option>
                                         <option value="Headache">Headache</option>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -312,11 +348,10 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="datetimepicker form-control"
-                                        placeholder="Choose date & time of medication..." id="med_datetime"
-                                        required>
+                                        placeholder="Choose date & time of medication..." id="med_datetime" required>
                                 </div>
                             </div>
-                            
+
 
                             <div class="modal-footer">
                                 <button type="button" id="addMed" class="btn btn-link waves-effect"
@@ -330,6 +365,82 @@
             </div>
         </div>
         <!-- #END# Add Med Modal-->
+
+        <!-- Add Procedure Modal -->
+        <div class="modal fade" id="addProcedureModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Add Procedure</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_add">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="procedure" data-live-search="true">
+                                        <option value="">-- Select Procedure --</option>
+                                        <option value="Endotracheal Intubation">Endotracheal Intubation</option>
+                                        <option value="Intravenous Cannulation">Intravenous Cannulation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="1" id="attempts" class="form-control" required>
+                                    <label class="form-label">Number of procedure attempts</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="successful" data-live-search="true">
+                                        <option value="">-- Select procedure successful --</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="procedure_response">
+                                        <option value="none">-- Select Response to Procedure --</option>
+                                        <option value="Improved oxygenation and ventilation">Improved oxygenation and ventilation</option>
+                                        <option value="Improved medication administration and fluid resuscitation">Improved medication administration and fluid resuscitation</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="procedure_complication">
+                                        <option value="None">-- Select Complication --</option>
+                                        <option value="None">None</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="datetimepicker form-control"
+                                        placeholder="Choose date & time of procedure..." id="procedure_datetime" required>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" id="addProcedure" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">OK</button>
+                                <button type="button" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Add Procedure Modal-->
     </section>
 
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>

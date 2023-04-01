@@ -119,7 +119,7 @@ function removePanel(n){
             '<h4 class="panel-title">' +
             '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="true" aria-controls="collapse' + i + '">' +
             '<i class="material-icons">local_pharmacy</i>' +
-            '#' + i + " " + medication + " " + dosage +
+            medication + " " + dosage +
             '</a>' +
             '</h4>' +
             '</div>' +
@@ -145,5 +145,61 @@ function removePanel(n){
 
     }
 
+    // Get medication info from modal and save in hidden fields
+    function addProcedure(e) {
+        var procedure = $('#procedure').val();
+        if (!procedure) {
+            $('#procedure').parents('.form-line').addClass('error');
+            //$('#medication').parents('.form-group').append("<span class='validationMessage' style='color:red;'> This field is required.</span>");
+            $('#procedure').focus();
+            return false;
+        }
+
+        const attempts = $('#attempts').val();
+        const successful = $('#successful').val();
+        const procedure_response = $('#procedure_response').val();
+        const procedure_complication = $('#procedure_complication').val();
+        const procedure_datetime = $('#procedure_datetime').val();
+
+
+        const colors = ["pink", "purple", "blue", "cyan", "teal", "green", "orange", "amber"];
+
+        const random = Math.floor(Math.random() * colors.length);
+
+        const color = colors[random];
+
+
+        $('#procedure_accordion').append('<div id="panel' + i + '" class="panel panel-col-' + color + '">' +
+            '<div class="panel-heading" role="tab" id="heading' + i + '">' +
+            '<h4 class="panel-title">' +
+            '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="true" aria-controls="collapse' + i + '">' +
+            '<i class="material-icons">local_pharmacy</i>' +
+            '#' + attempts + " " + procedure + "(s)" +
+            '</a>' +
+            '</h4>' +
+            '</div>' +
+            '<div id="collapse' + i + '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' + i + '">' +
+            '<div class="panel-body">Response: ' +
+            procedure_response + '<br/>Complication: ' + procedure_complication + '<br/>Performed At: ' + procedure_datetime + '<br/><br/>' +
+            '<button type="button" onclick="removePanel(' + i + ')" class="btn btn-default waves-effect">' +
+            '<i class="material-icons">delete</i>' +
+            '</button>' +
+
+            '<input type="hidden" id="procedure_item" name="procedure_name" value="' + procedure + '"/>' +
+            '<input type="hidden" name="attempts" value="' + attempts + '"/>' +
+            '<input type="hidden" name="successful" value="' + successful + '"/>' +
+            '<input type="hidden" name="procedure_response" value="' + procedure_response + '"/>' +
+            '<input type="hidden" name="procedure_complication" value="' + procedure_complication + '"/>' +
+            '<input type="hidden" name="procedure_datetime" value="' + procedure_datetime + '"/>' +
+
+            '</div>' +
+            '</div>' +
+            '</div>');
+        i++;
+        //$('#form_add').trigger("reset");
+
+    }
+
     $('#addMed').click(addMed);
+    $('#addProcedure').click(addProcedure);
 })(jQuery);
