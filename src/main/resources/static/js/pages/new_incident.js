@@ -36,6 +36,8 @@ $(function () {
             return form.valid();
         },
         onFinished: function (event, currentIndex) {
+            var str = $('#wizard_with_validation').serialize();
+            console.log(str)
             swal("Good job!", "Submitted!", "success");
         }
     });
