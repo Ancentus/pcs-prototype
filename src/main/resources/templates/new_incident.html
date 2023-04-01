@@ -138,7 +138,8 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" name="vitals_date" class="datepicker form-control"
+                                                    <input type="text" name="vitals_date"
+                                                        class="datepicker form-control"
                                                         placeholder="Choose Date Vital Signs Taken..." required>
                                                 </div>
                                             </div>
@@ -146,7 +147,8 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" name="vitals_time" class="timepicker form-control"
+                                                    <input type="text" name="vitals_time"
+                                                        class="timepicker form-control"
                                                         placeholder="Choose Time Vital Signs Taken..." required>
                                                 </div>
                                             </div>
@@ -204,20 +206,130 @@
 
                                 </fieldset>
 
-                                <h3>Terms & Conditions - Finish</h3>
+                                <h3>Medications</h3>
                                 <fieldset>
-                                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" required>
-                                    <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-                                </fieldset>
-                            </form>
+                                    <!-- Med Information -->
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2 id="dispTitle">MEDICATIONS GIVEN
+                                                    </h2>
+                                                    
+                                                    <ul class="header-dropdown m-r--5">
+                                                        <button type="button" class="btn bg-pink waves-effect"
+                                                            data-toggle="modal" data-target="#addMedModal">
+                                                            <i class="material-icons">add</i>
+                                                        </button>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+
+                                                    <div class="row clearfix">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="panel-group" id="accordion" role="tablist"
+                                                                aria-multiselectable="true">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
+                        <!-- #END# Med Information -->
+                        </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- #END# NEW EMS INCIDENT FORM-->
+        </div>
+        <!-- #END# NEW EMS INCIDENT FORM-->
 
 
         </div>
+
+        <!-- Add med Modal -->
+        <div class="modal fade" id="addMedModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Add Medication</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_add">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="medication" data-live-search="true">
+                                        <option value="">-- Select Medication --</option>
+                                        <option value="Aspirin">Aspirin</option>
+                                        <option value="Nitroglycerin">Nitroglycerin</option>
+                                        <option value="Nitroglycerin">Morphine</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="dosage" class="form-control" required>
+                                    <label class="form-label">Dosage*</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="route" data-live-search="true">
+                                        <option value="">-- Select Route --</option>
+                                        <option value="Oral">Oral</option>
+                                        <option value="Sublingual">Sublingual</option>
+                                        <option value="Intravenous">Intravenous</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="med_response">
+                                        <option value="none">-- Select Response --</option>
+                                        <option value="Improved">Improved</option>
+                                        <option value="No Response">No Response</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="med_complication">
+                                        <option value="none">-- Select Complication --</option>
+                                        <option value="Nausea">Nausea</option>
+                                        <option value="Headache">Headache</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="datetimepicker form-control"
+                                        placeholder="Choose date & time of medication..." id="med_datetime"
+                                        required>
+                                </div>
+                            </div>
+                            
+
+                            <div class="modal-footer">
+                                <button type="button" id="addMed" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">OK</button>
+                                <button type="button" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Add Med Modal-->
     </section>
 
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>

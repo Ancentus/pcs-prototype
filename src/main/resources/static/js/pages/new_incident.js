@@ -82,3 +82,68 @@ function setButtonWavesEffect(event) {
     $(event.currentTarget).find('[role="menu"] li a').removeClass('waves-effect');
     $(event.currentTarget).find('[role="menu"] li:not(.disabled) a').addClass('waves-effect');
 }
+
+function removePanel(n){
+    $('#panel' + n).remove();
+}
+
+(function ($) {
+
+    var i = 1;
+    // Get medication info from modal and save in hidden fields
+    function addMed(e) {
+        var medication = $('#medication').val();
+        if (!medication) {
+            $('#medication').parents('.form-line').addClass('error');
+            //$('#medication').parents('.form-group').append("<span class='validationMessage' style='color:red;'> This field is required.</span>");
+            $('#medication').focus();
+            return false;
+        }
+
+        const dosage = $('#dosage').val();
+        const route = $('#route').val();
+        const med_response = $('#med_response').val();
+        const med_complication = $('#med_complication').val();
+        const med_datetime = $('#med_datetime').val();
+
+
+        const colors = ["pink", "purple", "blue", "cyan", "teal", "green", "orange", "amber"];
+
+        const random = Math.floor(Math.random() * colors.length);
+
+        const color = colors[random];
+
+
+        $('#accordion').append('<div id="panel' + i + '" class="panel panel-col-' + color + '">' +
+            '<div class="panel-heading" role="tab" id="heading' + i + '">' +
+            '<h4 class="panel-title">' +
+            '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="true" aria-controls="collapse' + i + '">' +
+            '<i class="material-icons">local_pharmacy</i>' +
+            '#' + i + " " + medication + " " + dosage +
+            '</a>' +
+            '</h4>' +
+            '</div>' +
+            '<div id="collapse' + i + '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' + i + '">' +
+            '<div class="panel-body">Response: ' +
+            med_response + '<br/>Complication: ' + med_complication + '<br/>Given At: ' + med_datetime + '<br/><br/>' +
+            '<button type="button" onclick="removePanel(' + i + ')" class="btn btn-default waves-effect">' +
+            '<i class="material-icons">delete</i>' +
+            '</button>' +
+
+            '<input type="hidden" id="med_item" name="med_name" value="' + medication + '"/>' +
+            '<input type="hidden" name="dosage" value="' + dosage + '"/>' +
+            '<input type="hidden" name="route" value="' + route + '"/>' +
+            '<input type="hidden" name="med_response" value="' + med_response + '"/>' +
+            '<input type="hidden" name="med_complication" value="' + med_complication + '"/>' +
+            '<input type="hidden" name="med_datetime" value="' + med_datetime + '"/>' +
+
+            '</div>' +
+            '</div>' +
+            '</div>');
+        i++;
+        //$('#form_add').trigger("reset");
+
+    }
+
+    $('#addMed').click(addMed);
+})(jQuery);
