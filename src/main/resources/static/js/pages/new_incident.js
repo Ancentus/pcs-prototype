@@ -38,7 +38,45 @@ $(function () {
         onFinished: function (event, currentIndex) {
             var str = $('#wizard_with_validation').serialize();
             console.log(str)
-            swal("Good job!", "Submitted!", "success");
+            swal({
+                title: "New Paramedicine Care Summary",
+                text: "Click OK to send",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            }, function () {
+                $.ajax({
+                    url: 'http://localhost:8080/pcs/create',
+                    data: str,
+                    //dataType: 'json',
+                    type: 'post',
+                    //contentType: 'application/json',
+                    //data: JSON.stringify( { "login_name": $('#username').val(), "password": $('#password').val() } ),
+                    //processData: false,
+                    success: function( data, textStatus, jQxhr ){
+                        // Simulate an HTTP redirect:
+                        //window.location.replace("http://localhost:8080/admin");
+                        console.log(data);
+                        swal({
+                            title: "Success",
+                            text: data,
+                            type: "success"
+                        });
+                    },
+                    error: function( jqXhr, textStatus, errorThrown ){
+                        var errorMessage = jqXhr.status + ': ' + jqXhr.responseText;
+                        //alert(errorMessage);
+                        console.log(errorMessage);
+                        swal({
+                            title: "Error " + jqXhr.status,
+                            text: "Contact System Admin for assistance.",
+                            type: "error"
+                        });
+    
+                    }
+                });
+            });
         }
     });
 
