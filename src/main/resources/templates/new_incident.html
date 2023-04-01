@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>New EMS Incident - Dawapal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
+    <link href="../css/icon.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Sweet Alert Css -->
+    <link href="../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="../plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+        rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="../plugins/waitme/waitMe.css" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="../plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Themes -->
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-blue">
+    <th:block th:replace="fragments/pcs_header :: header" />
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- NEW EMS INCIDENT FORM-->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NEW EMS INCIDENT</h2>
+
+                        </div>
+                        <div class="body">
+                            <form id="wizard_with_validation" method="POST">
+                                <h3>Incident</h3>
+                                <fieldset>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="datetimepicker form-control"
+                                                placeholder="Choose PSAP Call date & time..." name="call_datetime"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="location" required>
+                                            <label class="form-label">Location*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="complaint" required>
+                                            <label class="form-label">Complaint*</label>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <h3>Patient</h3>
+                                <fieldset>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="name" class="form-control" required>
+                                            <label class="form-label">Name*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="gender" class="form-control" required>
+                                                <option value="">-- Select gender --</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" name="age" class="form-control" required>
+                                            <label class="form-label">Age*</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="phone" class="form-control" required>
+                                            <label class="form-label">Phone*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="nok" class="form-control" required>
+                                            <label class="form-label">N.O.K (Next of Kin)*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="nok_phone" class="form-control" required>
+                                            <label class="form-label">N.O.K Phone*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="nok_relationship" class="form-control" required>
+                                            <label class="form-label">N.O.K Relationship*</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <h3>Vital Signs</h3>
+                                <fieldset>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="vitals_date"
+                                                        class="datepicker form-control"
+                                                        placeholder="Choose Date Vital Signs Taken..." required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="vitals_time"
+                                                        class="timepicker form-control"
+                                                        placeholder="Choose Time Vital Signs Taken..." required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="sbp" class="form-control" required>
+                                            <label class="form-label">Systolic Blood Pressure*</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="dbp" class="form-control" required>
+                                            <label class="form-label">Diastolic Blood Pressure*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="map" class="form-control" required>
+                                            <label class="form-label">Mean Arterial Pressure*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="glasgow_eye" class="form-control" required>
+                                            <label class="form-label">Glasgow Coma Score - Eye*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="glasgow_verbal" class="form-control" required>
+                                            <label class="form-label">Glasgow Coma Score - Verbal*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="glasgow_motor" class="form-control" required>
+                                            <label class="form-label">Glasgow Coma Score - Motor*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="glasgow_qualifier" class="form-control" required>
+                                            <label class="form-label">Glasgow Coma Score - Qualifier*</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="glasgow_total" class="form-control" required>
+                                            <label class="form-label">Glasgow Coma Score - Total*</label>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <h3>Medications</h3>
+                                <fieldset>
+                                    <!-- Med Information -->
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2 id="dispTitle">MEDICATIONS GIVEN
+                                                    </h2>
+
+                                                    <ul class="header-dropdown m-r--5">
+                                                        <button type="button" class="btn bg-pink waves-effect"
+                                                            data-toggle="modal" data-target="#addMedModal">
+                                                            <i class="material-icons">add</i>
+                                                        </button>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+
+                                                    <div class="row clearfix">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="panel-group" id="accordion" role="tablist"
+                                                                aria-multiselectable="true">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- #END# Med Information -->
+                                </fieldset>
+
+                                <h3>Procedures</h3>
+                                <fieldset>
+                                    <!-- Procedure Information -->
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2 id="dispTitle">PROCEDURES PERFORMED
+                                                    </h2>
+
+                                                    <ul class="header-dropdown m-r--5">
+                                                        <button type="button" class="btn bg-pink waves-effect"
+                                                            data-toggle="modal" data-target="#addProcedureModal">
+                                                            <i class="material-icons">add</i>
+                                                        </button>
+                                                    </ul>
+                                                </div>
+                                                <div class="body">
+
+                                                    <div class="row clearfix">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <div class="panel-group" id="procedure_accordion"
+                                                                role="tablist" aria-multiselectable="true">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- #END# Procedure Information -->
+                                </fieldset>
+
+                                <h3>Cardiac Arrest</h3>
+                                <fieldset>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="cardiac_date"
+                                                        class="datepicker form-control"
+                                                        placeholder="Choose Date of Arrest...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="cardiac_time"
+                                                        class="timepicker form-control"
+                                                        placeholder="Choose Time of Arrest...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_ecg" class="form-control">
+                                                <option value="">-- Select Patient's Cardiac Rhythm / Electrocardiography (ECG)  --</option>
+                                                <option value="Tachycardia">Tachycardia</option>
+                                                <option value="Atrial fibrillation">Atrial fibrillation</option>
+                                                <option value="Atrial flutter">Atrial flutter</option>
+                                                <option value="Bradycardia">Bradycardia</option>
+                                                <option value="Ventricular fibrillation">Ventricular fibrillation</option>
+                                                <option value="Premature contractions">Premature contractions</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_ecg_type" class="form-control" >
+                                                <option value="">-- Select ECG Type --</option>
+                                                <option value="12-Lead ECG">12-Lead ECG</option>
+                                                <option value="Holter Monitor">Holter Monitor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_ecg_method" class="form-control" >
+                                                <option value="">-- Select Method of ECG Interpretation --</option>
+                                                <option value="Computerized">Computerized</option>
+                                                <option value="Rhythm Analysis">Rhythm Analysis</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_first_rhythm" class="form-control">
+                                                <option value="">-- Select First Monitored Arrest Rhythm of the Patient --</option>
+                                                <option value="Tachycardia">Tachycardia</option>
+                                                <option value="Atrial fibrillation">Atrial fibrillation</option>
+                                                <option value="Atrial flutter">Atrial flutter</option>
+                                                <option value="Bradycardia">Bradycardia</option>
+                                                <option value="Ventricular fibrillation">Ventricular fibrillation</option>
+                                                <option value="Premature contractions">Premature contractions</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_resuscitation_attempted" class="form-control" >
+                                                <option value="">-- Select Resuscitation Attempted By EMS --</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="datetimepicker form-control"
+                                                placeholder="Choose Date/Time of Initial CPR..." name="cardiac_cpr_dateTime">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_spontaneous_return" class="form-control" >
+                                                <option value="">-- Select Any Return of Spontaneous Circulation --</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="datetimepicker form-control"
+                                                placeholder="Choose Date/Time Resuscitation Discontinued..." name="cardiac_res_disc_dateTime">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <select name="cardiac_dest_rhythm" class="form-control">
+                                                <option value="">-- Select Cardiac Rhythm on Arrival at Destination --</option>
+                                                <option value="Tachycardia">Tachycardia</option>
+                                                <option value="Atrial fibrillation">Atrial fibrillation</option>
+                                                <option value="Atrial flutter">Atrial flutter</option>
+                                                <option value="Bradycardia">Bradycardia</option>
+                                                <option value="Ventricular fibrillation">Ventricular fibrillation</option>
+                                                <option value="Premature contractions">Premature contractions</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# NEW EMS INCIDENT FORM-->
+
+
+        </div>
+
+        <!-- Add med Modal -->
+        <div class="modal fade" id="addMedModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Add Medication</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_add">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="medication" data-live-search="true">
+                                        <option value="">-- Select Medication --</option>
+                                        <option value="Aspirin">Aspirin</option>
+                                        <option value="Nitroglycerin">Nitroglycerin</option>
+                                        <option value="Morphine">Morphine</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="dosage" class="form-control" required>
+                                    <label class="form-label">Dosage*</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="route" data-live-search="true">
+                                        <option value="">-- Select Route --</option>
+                                        <option value="Oral">Oral</option>
+                                        <option value="Sublingual">Sublingual</option>
+                                        <option value="Intravenous">Intravenous</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="med_response">
+                                        <option value="none">-- Select Response --</option>
+                                        <option value="Improved">Improved</option>
+                                        <option value="No Response">No Response</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="med_complication">
+                                        <option value="none">-- Select Complication --</option>
+                                        <option value="Nausea">Nausea</option>
+                                        <option value="Headache">Headache</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="datetimepicker form-control"
+                                        placeholder="Choose date & time of medication..." id="med_datetime" required>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" id="addMed" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">OK</button>
+                                <button type="button" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Add Med Modal-->
+
+        <!-- Add Procedure Modal -->
+        <div class="modal fade" id="addProcedureModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Add Procedure</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_add">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="procedure" data-live-search="true">
+                                        <option value="">-- Select Procedure --</option>
+                                        <option value="Endotracheal Intubation">Endotracheal Intubation</option>
+                                        <option value="Intravenous Cannulation">Intravenous Cannulation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="number" min="1" id="attempts" class="form-control" required>
+                                    <label class="form-label">Number of procedure attempts</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="successful" data-live-search="true">
+                                        <option value="">-- Select procedure successful --</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="procedure_response">
+                                        <option value="none">-- Select Response to Procedure --</option>
+                                        <option value="Improved oxygenation and ventilation">Improved oxygenation and ventilation</option>
+                                        <option value="Improved medication administration and fluid resuscitation">Improved medication administration and fluid resuscitation</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <select class="form-control" id="procedure_complication">
+                                        <option value="None">-- Select Complication --</option>
+                                        <option value="None">None</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="datetimepicker form-control"
+                                        placeholder="Choose date & time of procedure..." id="procedure_datetime" required>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" id="addProcedure" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">OK</button>
+                                <button type="button" class="btn btn-link waves-effect"
+                                    data-dismiss="modal">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Add Procedure Modal-->
+    </section>
+
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+    <!-- Moment Plugin Js -->
+    <script src="../plugins/momentjs/moment.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="../plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="../plugins/sweetalert/sweetalert.min.js"></script>
+
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="../plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="../plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/pages/new_incident.js"></script>
+</body>
+
+</html>
