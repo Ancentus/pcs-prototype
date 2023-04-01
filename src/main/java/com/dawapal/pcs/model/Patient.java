@@ -23,7 +23,7 @@ public class Patient {
 
     private String name;
     private String gender;
-    private int age;
+    private Integer age;
     private String phone;
     private String nok;
     private String nok_phone;
