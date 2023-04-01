@@ -8,14 +8,14 @@ import jakarta.persistence.Table;
 
 /**
  * This class represents a procedure entity in the system.
- * It maps to the "procedure" table in the database.
+ * It maps to the "tblprocedure" table in the database.
  * 
  * @author Ancentus Makau
  * @version 1.0.0
  */
 
 @Entity
-@Table(name = "procedure")
+@Table(name = "tblprocedure")
 public class Procedure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
