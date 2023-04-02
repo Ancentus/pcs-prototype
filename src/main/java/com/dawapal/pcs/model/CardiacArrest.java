@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -21,7 +22,9 @@ public class CardiacArrest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardiac_arrest_id;
 
-    private Long pcr_id;
+    @OneToOne(mappedBy = "cardiacArrest")
+    Incident incident;
+    
     private String cardiac_date;
     private String cardiac_time;
     private String cardiac_ecg;
@@ -33,6 +36,14 @@ public class CardiacArrest {
     private String cardiac_spontaneous_return;
     private String cardiac_res_disc_dateTime;
     private String cardiac_dest_rhythm;
+
+    
+    public Incident getIncident() {
+        return incident;
+    }
+    public void setIncident(Incident incident) {
+        this.incident = incident;
+    }
     
     public Long getCardiac_arrest_id() {
         return cardiac_arrest_id;
@@ -40,12 +51,7 @@ public class CardiacArrest {
     public void setCardiac_arrest_id(Long cardiac_arrest_id) {
         this.cardiac_arrest_id = cardiac_arrest_id;
     }
-    public Long getPcr_id() {
-        return pcr_id;
-    }
-    public void setPcr_id(Long pcr_id) {
-        this.pcr_id = pcr_id;
-    }
+    
     public String getCardiac_date() {
         return cardiac_date;
     }

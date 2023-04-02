@@ -48,4 +48,10 @@ public class IncidentRepositoryTests {
         Incident incident = repo.findById(Long.valueOf(1)).get();
         System.out.println(incident.getCall_datetime());
     }
+
+    @Test
+    public void testGetProcedures(){
+        Incident incident = repo.findById(Long.valueOf(1)).get();
+        assertThat(incident.getProcedures().size() > 0);
+    }
 }

@@ -53,8 +53,10 @@ public class PCSController {
      * @return ResponseEntity<String>
      *     gets data from client form and saves in the database
      */
+    
     @PostMapping("/pcs/create")
     public ResponseEntity<String> createPCS(PCS pcs){
+
         // create and save patient
         Patient patient = new Patient();
         patient.setName(pcs.getName());
@@ -67,37 +69,55 @@ public class PCSController {
 
         patient = patientRepository.save(patient);
 
+         // create and save vitals
+         Vitals vitals = new Vitals();
+         vitals.setVitals_date(pcs.getVitals_date());
+         vitals.setVitals_time(pcs.getVitals_time());
+         vitals.setSbp(pcs.getSbp());
+         vitals.setDbp(pcs.getDbp());
+         vitals.setMap(pcs.getMap());
+         vitals.setGlasgow_eye(pcs.getGlasgow_eye());
+         vitals.setGlasgow_verbal(pcs.getGlasgow_verbal());
+         vitals.setGlasgow_motor(pcs.getGlasgow_motor());
+         vitals.setGlasgow_qualifier(pcs.getGlasgow_qualifier());
+         vitals.setGlasgow_total(pcs.getGlasgow_total());
+ 
+         vitals = vitalsRepository.save(vitals);
+
+         // create and save cardiac arrest
+        CardiacArrest cArrest = new CardiacArrest();
+        cArrest.setCardiac_date(pcs.getCardiac_date());
+        cArrest.setCardiac_time(pcs.getCardiac_time());
+        cArrest.setCardiac_first_rhythm(pcs.getCardiac_first_rhythm());
+        cArrest.setCardiac_resuscitation_attempted(pcs.getCardiac_resuscitation_attempted());
+        cArrest.setCardiac_cpr_dateTime(pcs.getCardiac_cpr_dateTime());
+        cArrest.setCardiac_spontaneous_return(pcs.getCardiac_spontaneous_return());
+        cArrest.setCardiac_res_disc_dateTime(pcs.getCardiac_res_disc_dateTime());
+        cArrest.setCardiac_dest_rhythm(pcs.getCardiac_dest_rhythm());
+        cArrest.setCardiac_ecg(pcs.getCardiac_ecg());
+        cArrest.setCardiac_ecg_type(pcs.getCardiac_ecg_type());
+        cArrest.setCardiac_ecg_method(pcs.getCardiac_ecg_method());
+
+        cArrest = cardiacArrestRepository.save(cArrest);
+
+
         // create and save incident
         Incident incident = new Incident();
         incident.setPatient(patient);
         incident.setCall_datetime(pcs.getCall_datetime());
         incident.setLocation(pcs.getLocation());
         incident.setComplaint(pcs.getComplaint());
+        incident.setVitals(vitals);
+        incident.setCardiacArrest(cArrest);
 
         incident = incidentRepository.save(incident);
-        long pcr_id = incident.getPcr_id();
-
-        // create and save vitals
-        Vitals vitals = new Vitals();
-        vitals.setPcr_id(pcr_id);
-        vitals.setVitals_date(pcs.getVitals_date());
-        vitals.setVitals_time(pcs.getVitals_time());
-        vitals.setSbp(pcs.getSbp());
-        vitals.setDbp(pcs.getDbp());
-        vitals.setMap(pcs.getMap());
-        vitals.setGlasgow_eye(pcs.getGlasgow_eye());
-        vitals.setGlasgow_verbal(pcs.getGlasgow_verbal());
-        vitals.setGlasgow_motor(pcs.getGlasgow_motor());
-        vitals.setGlasgow_qualifier(pcs.getGlasgow_qualifier());
-        vitals.setGlasgow_total(pcs.getGlasgow_total());
-
-        vitalsRepository.save(vitals);
+       
 
         // create and save procedures
         int i = 0;
         for(String procedure_name : pcs.getProcedure_name()){
             Procedure procedure = new Procedure();
-            procedure.setPcr_id(pcr_id);
+            procedure.setIncident(incident);
             procedure.setProcedure_name(procedure_name);
             procedure.setProcedure_datetime(pcs.getProcedure_datetime().get(i));
             procedure.setAttempts(pcs.getAttempts().get(i));
@@ -113,7 +133,7 @@ public class PCSController {
         i = 0;
         for(String med_name : pcs.getMed_name()){
             Medication medication = new Medication();
-            medication.setPcr_id(pcr_id);
+            medication.setIncident(incident);
             medication.setMed_name(med_name);
             medication.setRoute(pcs.getRoute().get(i));
             medication.setDosage(pcs.getDosage().get(i));
@@ -125,23 +145,6 @@ public class PCSController {
             i++;
         }
 
-        // create and save cardiac arrest
-        CardiacArrest cArrest = new CardiacArrest();
-        cArrest.setPcr_id(pcr_id);
-        cArrest.setCardiac_date(pcs.getCardiac_date());
-        cArrest.setCardiac_time(pcs.getCardiac_time());
-        cArrest.setCardiac_first_rhythm(pcs.getCardiac_first_rhythm());
-        cArrest.setCardiac_resuscitation_attempted(pcs.getCardiac_resuscitation_attempted());
-        cArrest.setCardiac_cpr_dateTime(pcs.getCardiac_cpr_dateTime());
-        cArrest.setCardiac_spontaneous_return(pcs.getCardiac_spontaneous_return());
-        cArrest.setCardiac_res_disc_dateTime(pcs.getCardiac_res_disc_dateTime());
-        cArrest.setCardiac_dest_rhythm(pcs.getCardiac_dest_rhythm());
-        cArrest.setCardiac_ecg(pcs.getCardiac_ecg());
-        cArrest.setCardiac_ecg_type(pcs.getCardiac_ecg_type());
-        cArrest.setCardiac_ecg_method(pcs.getCardiac_ecg_method());
-
-        cardiacArrestRepository.save(cArrest);
-
-        return new ResponseEntity<>("Summary saved successfully. PCR_NO: " + pcr_id, HttpStatus.OK);
+        return new ResponseEntity<>("Summary saved successfully. PCR_NO: " + incident.getPcr_id(), HttpStatus.OK);
     }
 }
