@@ -36,7 +36,11 @@ public class AppController {
 
     @GetMapping("/view_pcr")
     public String viewAllIncidents(String pcr_id, Model model) {
-        model.addAttribute("pcr", iRepository.findById(Long.getLong(pcr_id)));
+        
+        if (!pcr_id.isEmpty()) {
+            model.addAttribute("pcr", iRepository.findById(Long.getLong(pcr_id)).get());
+        }
+        
         return "view_pcr";
     }
 }

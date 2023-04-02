@@ -1,4 +1,5 @@
 $(function () {
+    var table = $('#records').DataTable();
     var idx = 0;
     $('#records tbody').on('contextmenu', 'tr', function () {
         idx = table
@@ -15,9 +16,8 @@ $(function () {
 
             switch (ui.cmd) {
                 case "view_pcr":
-                    sessionStorage.setItem("invId", invoiceId);
 
-                    window.location.replace(getBaseUrl() + "view_pcr");
+                    window.location.replace(getBaseUrl() + "view_pcr?pcr_id=" + pcrId);
                     break;
             }
         },
@@ -29,3 +29,8 @@ $(function () {
         }
     });
 });
+
+function getBaseUrl() {
+    var re = new RegExp(/^.*\//);
+    return re.exec(window.location.href);
+}
