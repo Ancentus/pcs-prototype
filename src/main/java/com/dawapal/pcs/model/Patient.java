@@ -34,7 +34,7 @@ public class Patient {
     private String nok_phone;
     private String nok_relationship;
 
-    @OneToMany(mappedBy = "patient_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Set<Incident> incidents = new HashSet<>();
 
     // Getters and setters

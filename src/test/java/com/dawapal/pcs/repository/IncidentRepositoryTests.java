@@ -23,9 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class IncidentRepositoryTests {
-    @Autowired
-    private TestEntityManager entityManager;
-
+   
     @Autowired
     private IncidentRepository repo;
 
