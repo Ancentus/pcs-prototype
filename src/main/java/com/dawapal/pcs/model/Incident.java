@@ -1,5 +1,7 @@
 package com.dawapal.pcs.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,9 +40,12 @@ public class Incident {
         this.pcr_id = pcr_id;
     }
 
+    @JsonIgnore
     public Patient getPatient() {
         return patient;
     }
+
+    @JsonIgnore
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
