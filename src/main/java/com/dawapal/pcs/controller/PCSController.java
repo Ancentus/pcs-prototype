@@ -66,11 +66,10 @@ public class PCSController {
         patient.setNok_relationship(pcs.getNok_relationship());
 
         patient = patientRepository.save(patient);
-        long patientId = patient.getPatient_id();
 
         // create and save incident
         Incident incident = new Incident();
-        incident.setPatient_id(patientId);
+        incident.setPatient(patient);
         incident.setCall_datetime(pcs.getCall_datetime());
         incident.setLocation(pcs.getLocation());
         incident.setComplaint(pcs.getComplaint());

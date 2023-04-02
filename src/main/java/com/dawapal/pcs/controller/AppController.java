@@ -1,6 +1,10 @@
 package com.dawapal.pcs.controller;
 
+import com.dawapal.pcs.repository.IncidentRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -10,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AppController {
+
+    @Autowired
+    IncidentRepository iRepository;
      
     @GetMapping("")
     public String viewHomePage() {
@@ -19,5 +26,11 @@ public class AppController {
     @GetMapping("/new_incident")
     public String viewNewIncident() {
         return "new_incident";
+    }
+
+    @GetMapping("/view_records")
+    public String viewAllIncidents(Model model) {
+        model.addAttribute("records", iRepository.findAll());
+        return "view_records";
     }
 }

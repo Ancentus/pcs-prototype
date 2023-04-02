@@ -1,9 +1,14 @@
 package com.dawapal.pcs.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -28,6 +33,11 @@ public class Patient {
     private String nok;
     private String nok_phone;
     private String nok_relationship;
+
+    @OneToMany(mappedBy = "patient_id", fetch = FetchType.LAZY)
+    private Set<Incident> incidents = new HashSet<>();
+
+    // Getters and setters
     
     public Long getPatient_id() {
         return patient_id;

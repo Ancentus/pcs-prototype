@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -84,7 +84,14 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
+                                        <tr th:each="record : ${records}">
+                                            <td th:text="${record.pcr_id}"></td>
+                                            <td th:text="${record.patient.patient_id}"></td>
+                                            <td th:text="${record.patient.name}"></td>
+                                            <td th:text="${record.call_datetime}"></td>
+                                            <td th:text="${record.location}"></td>
+                                            <td th:text="${record.complaint}"></td>
+                                          </tr>
                                     </tbody>
                                 </table>
                             </div>

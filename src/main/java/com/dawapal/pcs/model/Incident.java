@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -17,11 +19,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "incident")
 public class Incident {
+   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pcr_id;
 
-    private Long patient_id;
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
     private String call_datetime;
     private String location;
     private String complaint;
@@ -32,12 +37,14 @@ public class Incident {
     public void setPcr_id(Long pcr_id) {
         this.pcr_id = pcr_id;
     }
-    public Long getPatient_id() {
-        return patient_id;
+
+    public Patient getPatient() {
+        return patient;
     }
-    public void setPatient_id(Long patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
+   
     public String getCall_datetime() {
         return call_datetime;
     }
