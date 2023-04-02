@@ -33,4 +33,10 @@ public class AppController {
         model.addAttribute("records", iRepository.findAll());
         return "view_records";
     }
+
+    @GetMapping("/view_pcr")
+    public String viewAllIncidents(String pcr_id, Model model) {
+        model.addAttribute("pcr", iRepository.findById(Long.getLong(pcr_id)));
+        return "view_pcr";
+    }
 }
