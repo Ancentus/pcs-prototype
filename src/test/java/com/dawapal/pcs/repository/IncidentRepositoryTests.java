@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+
 import org.springframework.test.annotation.Rollback;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,5 +41,11 @@ public class IncidentRepositoryTests {
             String name = incident.getPatient().getName();
             System.out.println(name);
         }
+    }
+
+    @Test
+    public void testGetById(){
+        Incident incident = repo.findById(Long.valueOf(1)).get();
+        System.out.println(incident.getCall_datetime());
     }
 }
