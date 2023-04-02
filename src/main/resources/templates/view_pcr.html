@@ -29,27 +29,516 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>RECORDS OVERVIEW</h2>
-            </div>
-
-            <!-- Widgets -->
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">person_add</i>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="../images/cust.png" alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3>Marc Spector Jr</h3>
+                                <p>Patient ID: 12345678</p>
+                                <p>PCR No: 4567</p>
+                            </div>
                         </div>
-                        <div class="content">
-                            <div class="text">${pcr.pcr_id}</div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>Gender</span>
+                                    <span>Male</span>
+                                </li>
+                                <li>
+                                    <span>Age</span>
+                                    <span>21</span>
+                                </li>
+                                <li>
+                                    <span>Phone</span>
+                                    <span>+254712345678</span>
+                                </li>
+                                <li>
+                                    <span>N.O.K</span>
+                                    <span>Adrian Spector</span>
+                                </li>
+                                <li>
+                                    <span>N.O.K Phone</span>
+                                    <span>+254712345678</span>
+                                </li>
+                                <li>
+                                    <span>Relationship</span>
+                                    <span>Brother</span>
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-lg waves-effect btn-block">VIEW MORE</button>
+                        </div>
+                    </div>
+
+                    <div class="card card-about-me">
+                        <div class="header">
+                            <h2>EMS INCIDENT</h2>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">watch</i>
+                                        PSAP Call Time
+                                    </div>
+                                    <div class="content">
+                                        22/03/2022 14:27:00
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">location_on</i>
+                                        Location
+                                    </div>
+                                    <div class="content">
+                                        Karen, Nairobi
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">notes</i>
+                                        Complaint Reported by Dispatch
+                                    </div>
+                                    <div class="content">
+                                        Seizure
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                
-            </div>
-            <!-- #END# Widgets -->
-            
+                <div class="col-xs-12 col-sm-9">
+                    <div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#vitals" aria-controls="home"
+                                            role="tab" data-toggle="tab">Vital Signs</a></li>
+                                    <li role="presentation"><a href="#procedures" aria-controls="home" role="tab"
+                                            data-toggle="tab">Procedures</a></li>
+                                    <li role="presentation"><a href="#cardiac" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Cardiac Arrest</a></li>
+                                    <li role="presentation"><a href="#injury" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Injury</a></li>
+                                    <li role="presentation"><a href="#medications" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Medications Given</a></li>
+                                </ul>
 
+                                <div class="tab-content">
+                                    <!-- Vitals panel -->
+                                    <div role="tabpanel" class="tab-pane fade in active" id="vitals">
+                                        <div class="container-fluid">
+
+
+                                            <!-- Date/Time Vital Signs Taken -->
+                                            <div class="block-header">
+                                                <h2>Date/Time Vital Signs Taken: </h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DATE</div>
+                                                            <div class="number">2023-03-16</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">TIME</div>
+                                                            <div class="number">08:45 AM</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Date/Time Vital Signs Taken -->
+
+
+
+                                            <!-- Pressure -->
+                                            <div class="block-header">
+                                                <h2>Pressure</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">SBP (Systolic Blood Pressure)</div>
+                                                            <div class="number">120 mmHg</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DBP (Diastolic Blood Pressure)</div>
+                                                            <div class="number">80 mmHg</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Mean Arterial Pressure</div>
+                                                            <div class="number">93 mmHg</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Blood Pressure -->
+
+                                            <!-- Glasgow -->
+                                            <div class="block-header">
+                                                <h2>Glasgow Coma Score</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Eye</div>
+                                                            <div class="number">4</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Verbal</div>
+                                                            <div class="number">5</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Motor</div>
+                                                            <div class="number">6</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Qualifier</div>
+                                                            <div class="number">None</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Total</div>
+                                                            <div class="number">15</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Glasgow -->
+
+
+                                        </div>
+                                    </div>
+                                    <!-- #END# Vitals panel -->
+
+                                    <!-- Procedures panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="procedures">
+                                        <div class="panel panel-default panel-post">
+                                            <div class="panel-heading">
+                                                <div class="media">
+
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">
+                                                            <a href="#">Endotracheal Intubation</a>
+                                                        </h4>
+                                                        2023-03-16 09:15
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="post">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">Number of procedure attempts <span
+                                                                class="badge bg-cyan">2</span></li>
+                                                        <li class="list-group-item">Procedure Successful <span
+                                                                class="badge bg-green">Yes</span></li>
+                                                        <li class="list-group-item">Procedure Complication <span
+                                                                class="badge bg-teal">None</span></li>
+                                                        <li class="list-group-item">Response to Procedure <span
+                                                                class="badge bg-orange">Improved oxygenation and
+                                                                ventilation</span></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="panel panel-default panel-post">
+                                            <div class="panel-heading">
+                                                <div class="media">
+
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">
+                                                            <a href="#">Intravenous Cannulation</a>
+                                                        </h4>
+                                                        2023-03-16 09:30
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="post">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">Number of procedure attempts <span
+                                                                class="badge bg-cyan">1</span></li>
+                                                        <li class="list-group-item">Procedure Successful <span
+                                                                class="badge bg-green">Yes</span></li>
+                                                        <li class="list-group-item">Procedure Complication <span
+                                                                class="badge bg-teal">None</span></li>
+                                                        <li class="list-group-item">Response to Procedure <span
+                                                                class="badge bg-orange">Improved medication
+                                                                administration and fluid resuscitation</span></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- #END# Procedures Panel -->
+
+                                    <!-- Cardiac arrest panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="cardiac">
+                                        <div class="container-fluid">
+
+
+                                            <!-- Date/Time of Cardiac Arrest -->
+                                            <div class="block-header">
+                                                <h2>Date/Time of Cardiac Arrest: </h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DATE</div>
+                                                            <div class="number">2023-03-16</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">TIME</div>
+                                                            <div class="number">08:45 AM</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Date/Time of Cardiac Arrest -->
+
+                                            <!-- Cardiac Rhythm / Electrocardiography (ECG) -->
+                                            <div class="block-header">
+                                                <h2>Cardiac Rhythm / Electrocardiography (ECG)</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Cardiac Rhythm</div>
+                                                            <div class="number">Ventricular Fibrillation</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">First Monitored Arrest Rhythm</div>
+                                                            <div class="number">Ventricular Fibrillation</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-red hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Cardiac Rhythm on Arrival at Destination
+                                                            </div>
+                                                            <div class="number">Asystole</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">ECG Type</div>
+                                                            <div class="number">12-lead ECG</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Method of ECG Interpretation</div>
+                                                            <div class="number">Computerized</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Cardiac Rhythm / Electrocardiography (ECG) -->
+                                            <!-- Resuscitation -->
+                                            <div class="block-header">
+                                                <h2>Resuscitation</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Date/Time of Initial CPR</div>
+                                                            <div class="number">2023-03-16 10:31</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Any Return of Spontaneous Circulation
+                                                            </div>
+                                                            <div class="number">No</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-red hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Date/Time Resuscitation Discontinued</div>
+                                                            <div class="number">2023-03-16 11:15</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Resuscitation -->
+
+
+
+                                        </div>
+                                    </div>
+                                    <!-- #END# Cardiac Arrest Panel -->
+                                    <!-- Injury panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="injury">
+                                        <div class="container-fluid">
+
+
+                                            <!-- N/A -->
+                                            <div class="block-header">
+                                                <h2>N/A</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #END# Injury Panel -->
+                                    <!-- Medications panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="medications">
+                                        <div class="body table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>MEDICATION</th>
+                                                        <th>ROUTE</th>
+                                                        <th>DOSAGE</th>
+                                                        <th>RESPONSE</th>
+                                                        <th>COMPLICATION</th>
+                                                        <th>DATE/TIME</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Aspirin</td>
+                                                        <td>Oral</td>
+                                                        <td>325 mg</td>
+                                                        <td>Improved</td>
+                                                        <td>Nausea</td>
+                                                        <td>2023-03-16 11:00</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Nitroglycerin</td>
+                                                        <td>Sublingual</td>
+                                                        <td>0.4 mg</td>
+                                                        <td>No Response</td>
+                                                        <td>Headache</td>
+                                                        <td>2023-03-16 11:05</td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- #END# Medications Panel -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

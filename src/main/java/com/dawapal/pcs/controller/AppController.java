@@ -17,7 +17,7 @@ public class AppController {
 
     @Autowired
     IncidentRepository iRepository;
-     
+
     @GetMapping("")
     public String viewHomePage() {
         return "index";
@@ -35,12 +35,10 @@ public class AppController {
     }
 
     @GetMapping("/view_pcr")
-    public String viewAllIncidents(String pcr_id, Model model) {
-        
-        if (!pcr_id.isEmpty()) {
-            model.addAttribute("pcr", iRepository.findById(Long.getLong(pcr_id)).get());
-        }
-        
+    public String viewAllIncidents(long pcr_id, Model model) {
+
+        model.addAttribute("pcr", iRepository.findById(pcr_id).get());
+
         return "view_pcr";
     }
 }
