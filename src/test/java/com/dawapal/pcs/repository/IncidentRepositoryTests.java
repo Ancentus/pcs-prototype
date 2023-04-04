@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Ancentus Makau
@@ -52,6 +53,7 @@ public class IncidentRepositoryTests {
     @Test
     public void testGetProcedures(){
         Incident incident = repo.findById(Long.valueOf(1)).get();
-        assertThat(incident.getProcedures().size() > 0);
+        System.out.println(incident.getProcedures().size());
+        assertTrue(incident.getProcedures().size() > 1);
     }
 }
