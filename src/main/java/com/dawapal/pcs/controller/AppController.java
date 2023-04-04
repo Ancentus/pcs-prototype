@@ -18,9 +18,10 @@ public class AppController {
     @Autowired
     IncidentRepository iRepository;
 
-    @GetMapping("")
-    public String viewHomePage() {
-        return "index";
+    @GetMapping("/")
+    public String viewHomePage(Model model) {
+        model.addAttribute("records", iRepository.findAll());
+        return "view_records";
     }
 
     @GetMapping("/new_incident")
