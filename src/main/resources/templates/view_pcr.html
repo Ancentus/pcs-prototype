@@ -331,7 +331,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">DATE</div>
-                                                            <div class="number">2023-03-16</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_date}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -342,7 +342,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">TIME</div>
-                                                            <div class="number">08:45 AM</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_time}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,7 +360,7 @@
 
                                                         <div class="content">
                                                             <div class="text">Cardiac Rhythm</div>
-                                                            <div class="number">Ventricular Fibrillation</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_ecg}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -369,7 +369,7 @@
 
                                                         <div class="content">
                                                             <div class="text">First Monitored Arrest Rhythm</div>
-                                                            <div class="number">Ventricular Fibrillation</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_first_rhythm}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -379,7 +379,7 @@
                                                         <div class="content">
                                                             <div class="text">Cardiac Rhythm on Arrival at Destination
                                                             </div>
-                                                            <div class="number">Asystole</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_dest_rhythm}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -388,7 +388,7 @@
 
                                                         <div class="content">
                                                             <div class="text">ECG Type</div>
-                                                            <div class="number">12-lead ECG</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_ecg_type}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -397,7 +397,7 @@
 
                                                         <div class="content">
                                                             <div class="text">Method of ECG Interpretation</div>
-                                                            <div class="number">Computerized</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_ecg_method}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -414,7 +414,7 @@
 
                                                         <div class="content">
                                                             <div class="text">Date/Time of Initial CPR</div>
-                                                            <div class="number">2023-03-16 10:31</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_cpr_dateTime}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -424,7 +424,7 @@
                                                         <div class="content">
                                                             <div class="text">Any Return of Spontaneous Circulation
                                                             </div>
-                                                            <div class="number">No</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_spontaneous_return}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
 
                                                         <div class="content">
                                                             <div class="text">Date/Time Resuscitation Discontinued</div>
-                                                            <div class="number">2023-03-16 11:15</div>
+                                                            <div class="number"><span th:text="${pcr.cardiacArrest.cardiac_res_disc_dateTime}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
