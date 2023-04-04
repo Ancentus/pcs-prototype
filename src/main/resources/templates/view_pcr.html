@@ -38,39 +38,38 @@
                                 <img src="../images/cust.png" alt="AdminBSB - Profile Image" />
                             </div>
                             <div class="content-area">
-                                <h3>Marc Spector Jr</h3>
-                                <p>Patient ID: 12345678</p>
-                                <p>PCR No: 4567</p>
+                                <h3 th:text="${pcr.patient.name}">Marc Spector Jr</h3>
+                                <p th:text="${'Patient ID: ' + pcr.patient.patient_id}">Patient ID: 12345678</p>
+                                <p th:text="${'PCR No: ' + pcr.pcr_id}">PCR No: 4567</p>
                             </div>
                         </div>
                         <div class="profile-footer">
                             <ul>
                                 <li>
                                     <span>Gender</span>
-                                    <span>Male</span>
+                                    <span th:text="${pcr.patient.gender}">Male</span>
                                 </li>
                                 <li>
                                     <span>Age</span>
-                                    <span>21</span>
+                                    <span th:text="${pcr.patient.age}">21</span>
                                 </li>
                                 <li>
                                     <span>Phone</span>
-                                    <span>+254712345678</span>
+                                    <span th:text="${pcr.patient.phone}">+254712345678</span>
                                 </li>
                                 <li>
                                     <span>N.O.K</span>
-                                    <span>Adrian Spector</span>
+                                    <span th:text="${pcr.patient.nok}">Adrian Spector</span>
                                 </li>
                                 <li>
                                     <span>N.O.K Phone</span>
-                                    <span>+254712345678</span>
+                                    <span th:text="${pcr.patient.nok_phone}">+254712345678</span>
                                 </li>
                                 <li>
                                     <span>Relationship</span>
-                                    <span>Brother</span>
+                                    <span th:text="${pcr.patient.nok_relationship}">Brother</span>
                                 </li>
                             </ul>
-                            <button class="btn btn-primary btn-lg waves-effect btn-block">VIEW MORE</button>
                         </div>
                     </div>
 
