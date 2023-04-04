@@ -464,7 +464,6 @@
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
                                                         <th>MEDICATION</th>
                                                         <th>ROUTE</th>
                                                         <th>DOSAGE</th>
@@ -474,24 +473,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Aspirin</td>
-                                                        <td>Oral</td>
-                                                        <td>325 mg</td>
-                                                        <td>Improved</td>
-                                                        <td>Nausea</td>
-                                                        <td>2023-03-16 11:00</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Nitroglycerin</td>
-                                                        <td>Sublingual</td>
-                                                        <td>0.4 mg</td>
-                                                        <td>No Response</td>
-                                                        <td>Headache</td>
-                                                        <td>2023-03-16 11:05</td>
+                                                    <tr th:each="med : ${pcr.medications}">
+                                                        
+                                                        <td th:text="${med.med_name}"></td>
+                                                        <td th:text="${med.route}"></td>
+                                                        <td th:text="${med.dosage}"></td>
+                                                        <td th:text="${med.med_response}"></td>
+                                                        <td th:text="${med.med_complication}"></td>
+                                                        <td th:text="${med.med_datetime}"></td>
                                                     </tr>
                                                     
                                                 </tbody>
