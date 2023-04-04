@@ -62,6 +62,8 @@ $(function () {
                             title: "Success",
                             text: data,
                             type: "success"
+                        }).then(function() {
+                            window.location.replace(getBaseUrl() + "view_records");
                         });
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
@@ -121,6 +123,11 @@ $(function () {
 function setButtonWavesEffect(event) {
     $(event.currentTarget).find('[role="menu"] li a').removeClass('waves-effect');
     $(event.currentTarget).find('[role="menu"] li:not(.disabled) a').addClass('waves-effect');
+}
+
+function getBaseUrl() {
+    var re = new RegExp(/^.*\//);
+    return re.exec(window.location.href);
 }
 
 function removePanel(n){

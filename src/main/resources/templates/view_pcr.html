@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Paramedicine Care Summary - Dawapal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
+    <link href="../css/icon.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Themes -->
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-blue">
+    <th:block th:replace="fragments/pcs_header :: header" />
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="../images/cust.png" alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3 th:text="${pcr.patient.name}">Marc Spector Jr</h3>
+                                <p th:text="${'Patient ID: ' + pcr.patient.patient_id}">Patient ID: 12345678</p>
+                                <p th:text="${'PCR No: ' + pcr.pcr_id}">PCR No: 4567</p>
+                            </div>
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>Gender</span>
+                                    <span th:text="${pcr.patient.gender}">Male</span>
+                                </li>
+                                <li>
+                                    <span>Age</span>
+                                    <span th:text="${pcr.patient.age}">21</span>
+                                </li>
+                                <li>
+                                    <span>Phone</span>
+                                    <span th:text="${pcr.patient.phone}">+254712345678</span>
+                                </li>
+                                <li>
+                                    <span>N.O.K</span>
+                                    <span th:text="${pcr.patient.nok}">Adrian Spector</span>
+                                </li>
+                                <li>
+                                    <span>N.O.K Phone</span>
+                                    <span th:text="${pcr.patient.nok_phone}">+254712345678</span>
+                                </li>
+                                <li>
+                                    <span>Relationship</span>
+                                    <span th:text="${pcr.patient.nok_relationship}">Brother</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card card-about-me">
+                        <div class="header">
+                            <h2>EMS INCIDENT</h2>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">watch</i>
+                                        PSAP Call Time
+                                    </div>
+                                    <div class="content">
+                                        <p th:text="${pcr.call_datetime}"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">location_on</i>
+                                        Location
+                                    </div>
+                                    <div class="content">
+                                        <p th:text="${pcr.location}"></p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">notes</i>
+                                        Complaint Reported by Dispatch
+                                    </div>
+                                    <div class="content">
+                                        <p th:text="${pcr.complaint}"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#vitals" aria-controls="home"
+                                            role="tab" data-toggle="tab">Vital Signs</a></li>
+                                    <li role="presentation"><a href="#procedures" aria-controls="home" role="tab"
+                                            data-toggle="tab">Procedures</a></li>
+                                    <li role="presentation"><a href="#cardiac" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Cardiac Arrest</a></li>
+                                    <li role="presentation"><a href="#injury" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Injury</a></li>
+                                    <li role="presentation"><a href="#medications" aria-controls="settings" role="tab"
+                                            data-toggle="tab">Medications Given</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <!-- Vitals panel -->
+                                    <div role="tabpanel" class="tab-pane fade in active" id="vitals">
+                                        <div class="container-fluid">
+
+
+                                            <!-- Date/Time Vital Signs Taken -->
+                                            <div class="block-header">
+                                                <h2>Date/Time Vital Signs Taken: </h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DATE</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.vitals_date}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">TIME</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.vitals_time}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Date/Time Vital Signs Taken -->
+
+
+
+                                            <!-- Pressure -->
+                                            <div class="block-header">
+                                                <h2>Pressure</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">SBP (Systolic Blood Pressure)</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.sbp + ' mmHg'}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DBP (Diastolic Blood Pressure)</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.dbp + ' mmHg'}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-green hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">equalizer</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Mean Arterial Pressure</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.map + ' mmHg'}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Blood Pressure -->
+
+                                            <!-- Glasgow -->
+                                            <div class="block-header">
+                                                <h2>Glasgow Coma Score</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Eye</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.glasgow_eye}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Verbal</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.glasgow_verbal}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Motor</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.glasgow_motor}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Qualifier</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.glasgow_qualifier}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">person</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">Total</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.vitals.glasgow_total}"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Glasgow -->
+
+
+                                        </div>
+                                    </div>
+                                    <!-- #END# Vitals panel -->
+
+                                    <!-- Procedures panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="procedures">
+                                        <div class="panel panel-default panel-post"
+                                            th:each="procedure : ${pcr.procedures}">
+                                            <div class="panel-heading">
+                                                <div class="media">
+
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">
+                                                            <a href="#"
+                                                                th:text="${procedure.procedure_name}">Endotracheal
+                                                                Intubation</a>
+                                                        </h4>
+                                                        <span th:text="${procedure.procedure_datetime}"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="post">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">Number of procedure attempts <span
+                                                                class="badge bg-cyan"><span
+                                                                    th:text="${procedure.attempts}"></span></span></li>
+                                                        <li class="list-group-item">Procedure Successful <span
+                                                                class="badge bg-green"><span
+                                                                    th:text="${procedure.successful}"></span></span>
+                                                        </li>
+                                                        <li class="list-group-item">Procedure Complication <span
+                                                                class="badge bg-teal"><span
+                                                                    th:text="${procedure.procedure_complication}"></span></span>
+                                                        </li>
+                                                        <li class="list-group-item">Response to Procedure <span
+                                                                class="badge bg-orange"><span
+                                                                    th:text="${procedure.procedure_response}"></span></span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- #END# Procedures Panel -->
+
+                                    <!-- Cardiac arrest panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="cardiac">
+                                        <div class="container-fluid">
+
+
+                                            <!-- Date/Time of Cardiac Arrest -->
+                                            <div class="block-header">
+                                                <h2>Date/Time of Cardiac Arrest: </h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">DATE</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_date}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-light-blue hover-zoom-effect">
+                                                        <div class="icon">
+                                                            <i class="material-icons">access_alarm</i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="text">TIME</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_time}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Date/Time of Cardiac Arrest -->
+
+                                            <!-- Cardiac Rhythm / Electrocardiography (ECG) -->
+                                            <div class="block-header">
+                                                <h2>Cardiac Rhythm / Electrocardiography (ECG)</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Cardiac Rhythm</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_ecg}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">First Monitored Arrest Rhythm</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_first_rhythm}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-red hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Cardiac Rhythm on Arrival at Destination
+                                                            </div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_dest_rhythm}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">ECG Type</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_ecg_type}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-teal hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Method of ECG Interpretation</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_ecg_method}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Cardiac Rhythm / Electrocardiography (ECG) -->
+                                            <!-- Resuscitation -->
+                                            <div class="block-header">
+                                                <h2>Resuscitation</h2>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Date/Time of Initial CPR</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_cpr_dateTime}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-orange hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Any Return of Spontaneous Circulation
+                                                            </div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_spontaneous_return}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="info-box-3 bg-red hover-expand-effect">
+
+                                                        <div class="content">
+                                                            <div class="text">Date/Time Resuscitation Discontinued</div>
+                                                            <div class="number"><span
+                                                                    th:text="${pcr.cardiacArrest.cardiac_res_disc_dateTime}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- #END# Resuscitation -->
+
+
+
+                                        </div>
+                                    </div>
+                                    <!-- #END# Cardiac Arrest Panel -->
+                                    <!-- Injury panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="injury">
+                                        <div class="container-fluid">
+
+
+                                            <!-- N/A -->
+                                            <div class="block-header">
+                                                <h2>N/A</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #END# Injury Panel -->
+                                    <!-- Medications panel-->
+                                    <div role="tabpanel" class="tab-pane fade in" id="medications">
+                                        <div class="body table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>MEDICATION</th>
+                                                        <th>ROUTE</th>
+                                                        <th>DOSAGE</th>
+                                                        <th>RESPONSE</th>
+                                                        <th>COMPLICATION</th>
+                                                        <th>DATE/TIME</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="med : ${pcr.medications}">
+
+                                                        <td th:text="${med.med_name}"></td>
+                                                        <td th:text="${med.route}"></td>
+                                                        <td th:text="${med.dosage}"></td>
+                                                        <td th:text="${med.med_response}"></td>
+                                                        <td th:text="${med.med_complication}"></td>
+                                                        <td th:text="${med.med_datetime}"></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- #END# Medications Panel -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+
+</body>
+
+</html>

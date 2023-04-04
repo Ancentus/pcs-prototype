@@ -64,7 +64,6 @@ public class WebSecurityConfig {
                             .and()
                         .logout().logoutSuccessUrl("/");
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 });

@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -21,7 +22,6 @@ public class Vitals {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vitals_id;
 
-    private Long pcr_id;
     private String vitals_date;
     private String vitals_time;
     private String sbp;
@@ -32,19 +32,23 @@ public class Vitals {
     private String glasgow_motor;
     private String glasgow_qualifier;
     private String glasgow_total;
+
+    @OneToOne(mappedBy = "vitals")
+    Incident incident;
     
+    public Incident getIncident() {
+        return incident;
+    }
+    public void setIncident(Incident incident) {
+        this.incident = incident;
+    }
     public Long getVitals_id() {
         return vitals_id;
     }
     public void setVitals_id(Long vitals_id) {
         this.vitals_id = vitals_id;
     }
-    public Long getPcr_id() {
-        return pcr_id;
-    }
-    public void setPcr_id(Long pcr_id) {
-        this.pcr_id = pcr_id;
-    }
+    
     public String getVitals_date() {
         return vitals_date;
     }

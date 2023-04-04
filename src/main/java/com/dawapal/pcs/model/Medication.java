@@ -1,9 +1,13 @@
 package com.dawapal.pcs.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -21,7 +25,10 @@ public class Medication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long medication_id;
 
-    private Long pcr_id;
+    @ManyToOne
+    @JoinColumn(name="pcr_id", nullable = false)
+    private Incident incident;
+    
     private String med_name;
     private String dosage;
     private String route;
@@ -29,18 +36,23 @@ public class Medication {
     private String med_complication;
     private String med_datetime;
     
+    @JsonIgnore
+    public Incident getIncident() {
+        return incident;
+    }
+
+    @JsonIgnore
+    public void setIncident(Incident incident) {
+        this.incident = incident;
+    }
+    
     public Long getMedication_id() {
         return medication_id;
     }
     public void setMedication_id(Long medication_id) {
         this.medication_id = medication_id;
     }
-    public Long getPcr_id() {
-        return pcr_id;
-    }
-    public void setPcr_id(Long pcr_id) {
-        this.pcr_id = pcr_id;
-    }
+    
     public String getMed_name() {
         return med_name;
     }

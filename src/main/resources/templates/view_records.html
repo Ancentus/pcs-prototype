@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Paramedicine Care Summary - Dawapal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
+    <link href="../css/icon.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+     <!-- Animation Css -->
+     <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- JQuery UI Css -->
+    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- JQuery UI DataTable Css -->
+    <link href="//cdn.datatables.net/plug-ins/725b2a2115b/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Themes -->
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-blue">
+    <th:block th:replace="fragments/pcs_header :: header" />
+
+    <section class="content">
+        <div class="container-fluid">
+
+
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                ALL EMERGENCY INCIDENTS
+                            </h2>
+
+                        </div>
+                        <div class="body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable"
+                                    id="records">
+                                    <thead>
+                                        <tr>
+                                            <th>PCR NO.</th>
+                                            <th>Patient ID</th>
+                                            <th>Name</th>
+                                            <th>Call Time</th>
+                                            <th>Location</th>
+                                            <th>Complaint</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>PCR NO.</th>
+                                            <th>Patient ID</th>
+                                            <th>Name</th>
+                                            <th>Call Time</th>
+                                            <th>Location</th>
+                                            <th>Complaint</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:each="record : ${records}">
+                                            <td th:text="${record.pcr_id}"></td>
+                                            <td th:text="${record.patient.patient_id}"></td>
+                                            <td th:text="${record.patient.name}"></td>
+                                            <td th:text="${record.call_datetime}"></td>
+                                            <td th:text="${record.location}"></td>
+                                            <td th:text="${record.complaint}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Jquery ui Js -->
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Jquery ui CONTEXT MENU Js -->
+    <script src="//cdn.jsdelivr.net/jquery.ui-contextmenu/1.7.0/jquery.ui-contextmenu.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+<script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/pages/view_records.js"></script>
+</body>
+
+</html>
