@@ -146,7 +146,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">DATE</div>
-                                                            <div class="number">2023-03-16</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.vitals_date}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -157,7 +157,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">TIME</div>
-                                                            <div class="number">08:45 AM</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.vitals_time}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -179,7 +179,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">SBP (Systolic Blood Pressure)</div>
-                                                            <div class="number">120 mmHg</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.sbp + ' mmHg'}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -190,7 +190,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">DBP (Diastolic Blood Pressure)</div>
-                                                            <div class="number">80 mmHg</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.dbp + ' mmHg'}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -201,7 +201,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Mean Arterial Pressure</div>
-                                                            <div class="number">93 mmHg</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.map + ' mmHg'}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,7 +221,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Eye</div>
-                                                            <div class="number">4</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.glasgow_eye}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -232,7 +232,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Verbal</div>
-                                                            <div class="number">5</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.glasgow_verbal}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -243,7 +243,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Motor</div>
-                                                            <div class="number">6</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.glasgow_motor}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -254,7 +254,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Qualifier</div>
-                                                            <div class="number">None</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.glasgow_qualifier}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,7 +265,7 @@
                                                         </div>
                                                         <div class="content">
                                                             <div class="text">Total</div>
-                                                            <div class="number">15</div>
+                                                            <div class="number"><span th:text="${pcr.vitals.glasgow_total}"></span></div>
                                                         </div>
                                                     </div>
                                                 </div>
