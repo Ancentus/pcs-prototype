@@ -85,7 +85,7 @@
                                         PSAP Call Time
                                     </div>
                                     <div class="content">
-                                        22/03/2022 14:27:00
+                                        <p th:text="${pcr.call_datetime}"></p>
                                     </div>
                                 </li>
                                 <li>
@@ -94,7 +94,7 @@
                                         Location
                                     </div>
                                     <div class="content">
-                                        Karen, Nairobi
+                                        <p th:text="${pcr.location}"></p>
                                     </div>
                                 </li>
 
@@ -104,7 +104,7 @@
                                         Complaint Reported by Dispatch
                                     </div>
                                     <div class="content">
-                                        Seizure
+                                        <p th:text="${pcr.complaint}"></p>
                                     </div>
                                 </li>
                             </ul>
