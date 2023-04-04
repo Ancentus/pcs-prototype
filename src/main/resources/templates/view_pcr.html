@@ -280,15 +280,15 @@
 
                                     <!-- Procedures panel-->
                                     <div role="tabpanel" class="tab-pane fade in" id="procedures">
-                                        <div class="panel panel-default panel-post">
+                                        <div class="panel panel-default panel-post" th:each="procedure : ${pcr.procedures}">
                                             <div class="panel-heading">
                                                 <div class="media">
 
                                                     <div class="media-body">
                                                         <h4 class="media-heading">
-                                                            <a href="#">Endotracheal Intubation</a>
+                                                            <a href="#" th:text="${procedure.procedure_name}">Endotracheal Intubation</a>
                                                         </h4>
-                                                        2023-03-16 09:15
+                                                        <span th:text="${procedure.procedure_datetime}"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,45 +296,13 @@
                                                 <div class="post">
                                                     <ul class="list-group">
                                                         <li class="list-group-item">Number of procedure attempts <span
-                                                                class="badge bg-cyan">2</span></li>
+                                                                class="badge bg-cyan"><span th:text="${procedure.attempts}"></span></span></li>
                                                         <li class="list-group-item">Procedure Successful <span
-                                                                class="badge bg-green">Yes</span></li>
+                                                                class="badge bg-green"><span th:text="${procedure.successful}"></span></span></li>
                                                         <li class="list-group-item">Procedure Complication <span
-                                                                class="badge bg-teal">None</span></li>
+                                                                class="badge bg-teal"><span th:text="${procedure.procedure_complication}"></span></span></li>
                                                         <li class="list-group-item">Response to Procedure <span
-                                                                class="badge bg-orange">Improved oxygenation and
-                                                                ventilation</span></li>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="panel panel-default panel-post">
-                                            <div class="panel-heading">
-                                                <div class="media">
-
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">
-                                                            <a href="#">Intravenous Cannulation</a>
-                                                        </h4>
-                                                        2023-03-16 09:30
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="post">
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item">Number of procedure attempts <span
-                                                                class="badge bg-cyan">1</span></li>
-                                                        <li class="list-group-item">Procedure Successful <span
-                                                                class="badge bg-green">Yes</span></li>
-                                                        <li class="list-group-item">Procedure Complication <span
-                                                                class="badge bg-teal">None</span></li>
-                                                        <li class="list-group-item">Response to Procedure <span
-                                                                class="badge bg-orange">Improved medication
-                                                                administration and fluid resuscitation</span></li>
+                                                                class="badge bg-orange"><span th:text="${procedure.procedure_response}"></span></span></li>
 
                                                     </ul>
                                                 </div>
